@@ -1,4 +1,5 @@
 #Import modules
+import numpy as np
 import picamera
 import picamera.array
 import time
