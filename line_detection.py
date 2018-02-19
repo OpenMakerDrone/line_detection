@@ -15,6 +15,7 @@ time.sleep(0.1)
 #Capture image
 camera.capture(rawCapture, format="bgr")
 img = rawCapture.array
+org = rawCapture.array
 
 #Convert to Grayscale
 gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
@@ -29,9 +30,9 @@ edged = cv2.Canny(blurred, 50, 150)
 lines = cv2.HoughLinesP(edged,1,np.pi/180,10,80,1)
 
 #Draw lines on input image
-if(lines != None):
+if(lines is not None):
     for x1,y1,x2,y2 in lines[0]:
-        cv2.line(resized,(x1,y1),(x2,y2),(0,255,0),2)
+        cv2.line(org,(x1,y1),(x2,y2),(0,255,0),2)
 
 cv2.imshow("line detect test", img) 
 cv2.waitKey(0)
