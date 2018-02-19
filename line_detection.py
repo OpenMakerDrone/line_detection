@@ -1,3 +1,9 @@
+#Import modules
+import picamera
+import picamera.array
+import time
+import cv2
+
 #Initialize camera
 camera = picamera.PiCamera()
 camera.resolution = (640,480)
